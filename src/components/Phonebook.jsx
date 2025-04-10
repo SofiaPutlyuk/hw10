@@ -78,6 +78,16 @@ class Phonebook extends React.Component {
                         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                         required
                     />
+                      <InputForm
+                        type="text"
+                        name="name"
+                        value={this.props.filter}
+                        placeholder="Пошук контакту"
+                        onChange={this.props.handleFilter}
+                        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+                        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+                        required
+                    />
                     <InputForm
                         type="tel"
                         name="number"
