@@ -17,7 +17,6 @@ class App extends Component {
   handleContact = ({target : {value}}) => {
     this.setState({
      name : value,
-     filter : value
     })
   }
   handleContactTel = ({target : {value}}) => {
@@ -51,6 +50,9 @@ class App extends Component {
     );
 
   }
+  handleFilterChange = ({ target: { value } }) => {
+    this.setState({ filter: value });
+  };
   handleDeleteTask = (deletedTask) => {
    const {contacts} = this.state
    const updateContact = contacts.filter(contact => contact.id !== deletedTask) 
@@ -60,9 +62,9 @@ class App extends Component {
    localStorage.setItem("Contact",JSON.stringify(updateContact))
   }
     render(){
-    const {name,number} = this.state
+    const {name,number,filter} = this.state
      return(
-      <Phonebook name={name} handleContact={this.handleContact} handleAddContact={this.handleAddContact} contact={this.handleFilterContact()} tel={number} handleContactTel={this.handleContactTel} handleDelete={this.handleDeleteTask}/>
+      <Phonebook name={name}  filter={filter} handleContact={this.handleContact}  handleFilter={this.handleFilterChange} handleAddContact={this.handleAddContact} contact={this.handleFilterContact()} tel={number} handleContactTel={this.handleContactTel} handleDelete={this.handleDeleteTask}/>
     )
   }
 }
